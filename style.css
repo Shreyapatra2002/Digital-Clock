@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    padding: 20px;
+    transition: background 1.5s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    min-height: 200px;
+    width: 100%;
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+
+#clock {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: clamp(2rem, 8vw, 5rem);
+    color: #fff;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    width: 90%;
+    max-width: 600px;
+}
+
+.clock-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.date-display {
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform: translateZ(20px);
+}
+
+.theme-selector {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.theme-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+}
+
+.theme-btn.active {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.additional-info {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 15px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    flex: 1;
+    max-width: 200px;
+}
+
+.info-title {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+}
+
+.info-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+}
+
+.mobile-notice {
+    display: none;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    #clock {
+        padding: 15px 30px;
+    }
+    
+    .additional-info {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .info-box {
+        flex: 1 0 calc(33% - 10px);
+        min-width: 100px;
+        padding: 12px;
+    }
+    
+    .theme-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .info-title {
+        font-size: 0.85rem;
+    }
+    
+    .info-value {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #clock {
+        padding: 15px 20px;
+        border-radius: 15px;
+        width: 95%;
+    }
+    
+    .theme-btn {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .additional-info {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 5px;
+        scrollbar-width: none;
+    }
+    
+    .additional-info::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .info-box {
+        flex: 0 0 auto;
+        min-width: 110px;
+        padding: 10px;
+    }
+    
+    .info-title {
+        font-size: 0.8rem;
+    }
+    
+    .info-value {
+        font-size: 1.1rem;
+    }
+    
+    .mobile-notice {
+        display: block;
+    }
+}
+
+@media (max-width: 350px) {
+    .theme-selector {
+        gap: 8px;
+    }
+    
+    .theme-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .info-box {
+        min-width: 100px;
+        padding: 8px;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Animated Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="clock-container">
+            <div id="clock">
+                <div class="clock-content">
+                    <div class="date-display">Thursday, January 1, 1970</div>
+                    <div class="time-display">00:00:00 PM</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="theme-selector">
+            <div class="theme-btn active" style="background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);" data-theme="default"></div>
+            <div class="theme-btn" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);" data-theme="dark"></div>
+            <div class="theme-btn" style="background: linear-gradient(135deg, #ff5e62, #ff9966);" data-theme="sunset"></div>
+            <div class="theme-btn" style="background: linear-gradient(135deg, #00b09b, #96c93d);" data-theme="green"></div>
+            <div class="theme-btn" style="background: linear-gradient(135deg, #5D4157, #A8CABA);" data-theme="purple"></div>
+        </div>
+        
+        <div class="mobile-notice">Tap theme circles to change colors</div>
+        
+        <div class="additional-info">
+            <div class="info-box">
+                <div class="info-title">Timezone</div>
+                <div class="info-value" id="timezone">UTC</div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">Day of Year</div>
+                <div class="info-value" id="day-of-year">1</div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">Week Number</div>
+                <div class="info-value" id="week-number">1</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include GSAP library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
